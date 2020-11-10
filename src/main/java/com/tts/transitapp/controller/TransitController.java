@@ -17,13 +17,13 @@ public class TransitController {
     @Autowired
     private TransitService transitService;
 	
-    @GetMapping("/buses")
+    @GetMapping("/")
     public String getBusesPage(Model model){
         model.addAttribute("request", new BusRequest());
         return "index";
     }
 	
-    @PostMapping("/buses")
+    @PostMapping("/")
     public String getNearbyBuses(BusRequest request, Model model) {
         List<Bus> buses = transitService.getNearbyBuses(request);
         model.addAttribute("buses", buses);
